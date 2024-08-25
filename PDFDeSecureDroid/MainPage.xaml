@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDFDeSecureDroid.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="由同名Windows软件启发"
+                Style="{StaticResource SubHeadline}" />
+
+            <Button
+                x:Name="OpenFile"
+                Text="打开PDF文件" 
+                Clicked="OnOpenFileClicked"
+                HorizontalOptions="Fill" />
+            <Label
+                x:Name="FileNameLabel"
+                Text="文件名：未选择"
+                Style="{StaticResource SubHeadline}" />
+            <ProgressBar
+                x:Name="DecryptProgress"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="SaveFile"
+                Text="保存解密版本" 
+                Clicked="OnSaveFileClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
