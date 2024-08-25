@@ -36,40 +36,48 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">29.0</SupportedOSPlatformVersion>
 		<RuntimeIdentifiers Condition="$(TargetFramework.Contains('-android'))">
 			android-arm64</RuntimeIdentifiers>
-		<Platforms>AnyCPU;ARM64</Platforms>
+		<Platforms>AnyCPU</Platforms>
+		
+		<UseNativeHttpHandler>true</UseNativeHttpHandler>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+		<EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+		<EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android34.0|AnyCPU'">
 		<AndroidPackageFormat>apk</AndroidPackageFormat>
-		<EnableLLVM>True</EnableLLVM>
-		<TrimMode>link</TrimMode>
+		<EnableLLVM>False</EnableLLVM>
+		<TrimMode>partial</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
 		<AndroidLinkTool>r8</AndroidLinkTool>
-		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android34.0|ARM64'">
-		<AndroidPackageFormat>apk</AndroidPackageFormat>
-		<EnableLLVM>True</EnableLLVM>
-		<TrimMode>link</TrimMode>
-		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidLinkTool>r8</AndroidLinkTool>
-		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+		<StackTraceSupport>false</StackTraceSupport>
+		<UseSystemResourceKeys>true</UseSystemResourceKeys>
+		<HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+		<DebuggerSupport>false</DebuggerSupport>
+		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+		<RunAOTCompilation>True</RunAOTCompilation>
+		<PublishTrimmed>True</PublishTrimmed>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android34.0|AnyCPU'">
-		<EnableLLVM>True</EnableLLVM>
-		<TrimMode>link</TrimMode>
+		<EnableLLVM>False</EnableLLVM>
+		<TrimMode>partial</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+		<EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+		<RunAOTCompilation>True</RunAOTCompilation>
+		<PublishTrimmed>True</PublishTrimmed>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android34.0|ARM64'">
-		<EnableLLVM>True</EnableLLVM>
-		<TrimMode>link</TrimMode>
-		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
-	</PropertyGroup>
+	
+	<ItemGroup>
+		<TrimmableAssembly Include="MyAssembly" />
+		<TrimmableAssembly Remove="PDFsharp" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
@@ -90,14 +98,16 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.80" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="PDFsharp" Version="6.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="Resources\Fonts\" />
 		<Folder Include="Resources\Images\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
 	</ItemGroup>
 
 </Project>
