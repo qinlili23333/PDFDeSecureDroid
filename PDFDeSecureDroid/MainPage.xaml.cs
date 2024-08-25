@@ -2,6 +2,10 @@
 using PdfSharp.Pdf;
 using System;
 using System.Runtime.Versioning;
+using Android.Content;
+using Android.App;
+using Android.Icu.Util;
+using Android.Widget;
 
 namespace PDFDeSecureDroid
 {
@@ -10,9 +14,13 @@ namespace PDFDeSecureDroid
         PdfDocument pdf = new PdfDocument();
 
         PdfDocument outpdf = new PdfDocument();
+        static int SaveCallback = 48;
+
+
         public MainPage()
         {
             InitializeComponent();
+            ((MainActivity)Microsoft.Maui.ApplicationModel.Platform.CurrentActivity).Callback = OnActivityResult;
         }
         private async void OnOpenFileClicked(object sender, EventArgs e)
         {
@@ -66,8 +74,45 @@ namespace PDFDeSecureDroid
                 SaveFile.IsEnabled = false;
             }
         }
-        private async void OnSaveFileClicked(object sender, EventArgs e)
+        private void OnSaveFileClicked(object sender, EventArgs e)
         {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("application/pdf");
+            intent.PutExtra(Intent.ExtraTitle, "Decrypted.pdf");
+            Microsoft.Maui.ApplicationModel.Platform.CurrentActivity.StartActivityForResult(intent, SaveCallback);
+        }
+        public async void OnActivityResult(int requestCode, Result resultCode, Intent? data)
+        {
+            if(requestCode == SaveCallback)
+            {
+                if ((resultCode == Result.Ok) && (data != null))
+                {
+                    if (data.Data != null)
+                    {
+                        OpenFile.IsEnabled = false;
+                        SaveFile.Text = "保存文件中...";
+                        SaveFile.IsEnabled = false;
+                        await Task.Run( () =>
+                        {
+                            Stream buffer = new MemoryStream();
+                            outpdf.Save(buffer, false);
+                            Stream outputStream = Microsoft.Maui.ApplicationModel.Platform.CurrentActivity.ContentResolver.OpenOutputStream(data.Data);
+                            buffer.CopyTo(outputStream);
+                            outputStream.Close();
+                            buffer.Close();
+                            outpdf.Dispose();
+                            pdf.Dispose();
+                        });
+                        SaveFile.IsEnabled = true;
+                        OpenFile.IsEnabled = true;
+                        SaveFile.Text = "保存解密版本";
+                        Toast success = new Toast(Microsoft.Maui.ApplicationModel.Platform.CurrentActivity);
+                        success.SetText("解密成功！");
+                        success.Show();
+                    }
+                }
+            }
         }
     }
 }
