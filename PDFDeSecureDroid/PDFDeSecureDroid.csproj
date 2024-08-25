@@ -34,6 +34,8 @@
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">29.0</SupportedOSPlatformVersion>
+		<RuntimeIdentifiers Condition="$(TargetFramework.Contains('-android'))">
+			android-arm64</RuntimeIdentifiers>
 		<Platforms>AnyCPU;ARM64</Platforms>
 	</PropertyGroup>
 
@@ -43,7 +45,7 @@
 		<TrimMode>link</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
 		<AndroidLinkTool>r8</AndroidLinkTool>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android34.0|ARM64'">
@@ -52,21 +54,21 @@
 		<TrimMode>link</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
 		<AndroidLinkTool>r8</AndroidLinkTool>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android34.0|AnyCPU'">
 		<EnableLLVM>True</EnableLLVM>
 		<TrimMode>link</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android34.0|ARM64'">
 		<EnableLLVM>True</EnableLLVM>
 		<TrimMode>link</TrimMode>
 		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -94,8 +96,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Resources\Fonts\" />
-	  <Folder Include="Resources\Images\" />
+		<Folder Include="Resources\Fonts\" />
+		<Folder Include="Resources\Images\" />
 	</ItemGroup>
 
 </Project>

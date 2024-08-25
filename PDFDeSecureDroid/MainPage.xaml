@@ -23,9 +23,11 @@
                 Style="{StaticResource SubHeadline}" />
             <ProgressBar
                 x:Name="DecryptProgress"
+                Progress="0"
                 HorizontalOptions="Fill" />
             <Button
                 x:Name="SaveFile"
+                IsEnabled="False"
                 Text="保存解密版本" 
                 Clicked="OnSaveFileClicked"
                 HorizontalOptions="Fill" />
