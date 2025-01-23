@@ -6,7 +6,8 @@
 理论可以移植到iOS，但我没有mACos设备
 
 ## 使用方式
-下载Release内安装包或自行构建
+下载Release内安装包或自行构建  
+Release内的安装包不保证签名一致性，如果无法覆盖安装请卸载旧版本（反正也没有需要储存的数据不是吗）  
 
 ## 目标设备
 Android 10以上的ARM64设备  
@@ -15,7 +16,7 @@ Android 10以上的ARM64设备
 
 ## 构建环境
 - Visual Studio 2022 Preview
-- .NET SDK 8.0
+- .NET SDK 9.0
 
 ## 致谢
 - [PDFDeSecure](https://github.com/abatsakidis/PDFDeSecure)  

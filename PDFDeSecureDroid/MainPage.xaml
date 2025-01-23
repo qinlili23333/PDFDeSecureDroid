@@ -31,6 +31,9 @@
                 Text="保存解密版本" 
                 Clicked="OnSaveFileClicked"
                 HorizontalOptions="Fill" />
+            <Label
+                x:Name="Privacy"
+                Text="本应用完全开源，没有网络权限也没有全部存储权限，一个系统权限都不需要，使用Document API读写文件（因此你没有选择的文件一个也读不了），文件全程在内存中处理不落地，完全不保存任何信息。你可以在Windows平台下载同样方式的PDFDeSecure Avalonia，同样完全开源。界面丑是Feature，不要提交任何与美观度有关的反馈我不会改的。" />
         </VerticalStackLayout>
     </ScrollView>
 
