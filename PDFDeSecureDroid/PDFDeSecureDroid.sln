@@ -23,6 +23,8 @@ Global
 		{6562CE5A-676E-43BB-903F-E249275467F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6562CE5A-676E-43BB-903F-E249275467F6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{6562CE5A-676E-43BB-903F-E249275467F6}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{6562CE5A-676E-43BB-903F-E249275467F6}.Release|ARM64.Build.0 = Release|Any CPU
+		{6562CE5A-676E-43BB-903F-E249275467F6}.Release|ARM64.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

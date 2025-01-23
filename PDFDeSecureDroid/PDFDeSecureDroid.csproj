@@ -45,32 +45,35 @@
 		<EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android34.0|AnyCPU'">
-		<AndroidPackageFormat>apk</AndroidPackageFormat>
-		<EnableLLVM>False</EnableLLVM>
-		<TrimMode>partial</TrimMode>
-		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidLinkTool>r8</AndroidLinkTool>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-		<AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-		<StackTraceSupport>false</StackTraceSupport>
-		<UseSystemResourceKeys>true</UseSystemResourceKeys>
-		<HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
-		<DebuggerSupport>false</DebuggerSupport>
-		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
-		<RunAOTCompilation>True</RunAOTCompilation>
-		<PublishTrimmed>True</PublishTrimmed>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android35.0|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <DebugType>none</DebugType>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <EnableLLVM>False</EnableLLVM>
+    <TrimMode>partial</TrimMode>
+    <AndroidKeyStore>False</AndroidKeyStore>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <StackTraceSupport>false</StackTraceSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+    <DebuggerSupport>false</DebuggerSupport>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+    <RunAOTCompilation>True</RunAOTCompilation>
+    <PublishTrimmed>True</PublishTrimmed>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android34.0|AnyCPU'">
-		<EnableLLVM>False</EnableLLVM>
-		<TrimMode>partial</TrimMode>
-		<AndroidKeyStore>False</AndroidKeyStore>
-		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-		<AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-		<EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-		<RunAOTCompilation>True</RunAOTCompilation>
-		<PublishTrimmed>True</PublishTrimmed>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android35.0|AnyCPU'">
+	  <Optimize>False</Optimize>
+    <EnableLLVM>False</EnableLLVM>
+    <TrimMode>partial</TrimMode>
+    <AndroidKeyStore>False</AndroidKeyStore>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <RunAOTCompilation>True</RunAOTCompilation>
+    <PublishTrimmed>True</PublishTrimmed>
 	</PropertyGroup>
 
 	
@@ -81,10 +84,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.png" Color="#FFFFFF" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
