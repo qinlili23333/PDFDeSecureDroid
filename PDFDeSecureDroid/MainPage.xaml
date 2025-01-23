@@ -19,7 +19,7 @@
                 HorizontalOptions="Fill" />
             <Label
                 x:Name="FileNameLabel"
-                Text="文件名：未选择"
+                Text="等待选择文件"
                 Style="{StaticResource SubHeadline}" />
             <ProgressBar
                 x:Name="DecryptProgress"

@@ -8,9 +8,9 @@ namespace PDFDeSecureDroid
 {
     public partial class MainPage : ContentPage
     {
-        PdfDocument pdf;
+        PdfDocument? pdf;
 
-        PdfDocument outpdf;
+        PdfDocument? outpdf;
         static readonly int SaveCallback = 48;
 
 
@@ -39,6 +39,7 @@ namespace PDFDeSecureDroid
                 var result = await FilePicker.Default.PickAsync(options);
                 if (result != null)
                 {
+                    pdf?.Dispose();
                     FileNameLabel.Text = result.FileName;
                     OpenFile.IsEnabled = false;
                     OpenFile.Text = "读取文件中...";
@@ -49,6 +50,7 @@ namespace PDFDeSecureDroid
                         Stream fileStream = await result.OpenReadAsync();
                         pdf = PdfReader.Open(fileStream, PdfDocumentOpenMode.Import);
                         int current = 0;
+                        outpdf = new PdfDocument();
                         foreach (PdfPage page in pdf.Pages)
                         {
                             outpdf.AddPage(page);
@@ -80,7 +82,7 @@ namespace PDFDeSecureDroid
             var intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("application/pdf");
-            intent.PutExtra(Intent.ExtraTitle, "Decrypted.pdf");
+            intent.PutExtra(Intent.ExtraTitle, FileNameLabel.Text.Replace(".pdf","_Decrypted.pdf"));
             Platform.CurrentActivity?.StartActivityForResult(intent, SaveCallback);
         }
         public async void OnActivityResult(int requestCode, Result resultCode, Intent? data)
@@ -105,9 +107,9 @@ namespace PDFDeSecureDroid
                             outpdf.Dispose();
                             pdf.Dispose();
                         });
-                        SaveFile.IsEnabled = true;
                         OpenFile.IsEnabled = true;
                         SaveFile.Text = "保存解密版本";
+                        FileNameLabel.Text = "等待选择文件";
                         Toast success = new(Platform.CurrentActivity);
                         success.SetText("解密成功！");
                         success.Show();
