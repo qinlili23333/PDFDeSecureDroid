@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace PDFDeSecureDroid
+﻿namespace PDFDeSecureDroid
 {
     public static class MauiProgram
     {
