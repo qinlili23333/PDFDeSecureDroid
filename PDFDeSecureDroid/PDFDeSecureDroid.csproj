@@ -50,7 +50,7 @@
 	  <DebugType>none</DebugType>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <EnableLLVM>False</EnableLLVM>
-    <TrimMode>partial</TrimMode>
+    <TrimMode>link</TrimMode>
     <AndroidKeyStore>False</AndroidKeyStore>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
@@ -67,7 +67,7 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android35.0|AnyCPU'">
 	  <Optimize>False</Optimize>
     <EnableLLVM>False</EnableLLVM>
-    <TrimMode>partial</TrimMode>
+    <TrimMode>link</TrimMode>
     <AndroidKeyStore>False</AndroidKeyStore>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
     <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
