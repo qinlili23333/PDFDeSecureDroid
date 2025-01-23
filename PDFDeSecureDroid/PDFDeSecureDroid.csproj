@@ -43,6 +43,9 @@
 		<MetadataUpdaterSupport>false</MetadataUpdaterSupport>
 		<EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
 		<EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+		<Configurations>Debug;Release;ReleaseAAB</Configurations>
+    <ApplicationVersion>2</ApplicationVersion>
+    <ApplicationDisplayVersion>1.1.0</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android35.0|AnyCPU'">
@@ -62,6 +65,30 @@
     <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
     <RunAOTCompilation>True</RunAOTCompilation>
     <PublishTrimmed>True</PublishTrimmed>
+    <AndroidUseAapt2>True</AndroidUseAapt2>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleaseAAB|net9.0-android35.0|AnyCPU'">
+	  <Optimize>True</Optimize>
+	  <DebugType>none</DebugType>
+	  <AndroidPackageFormat>aab</AndroidPackageFormat>
+	  <EnableLLVM>False</EnableLLVM>
+	  <TrimMode>link</TrimMode>
+	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <AndroidLinkTool>r8</AndroidLinkTool>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+	  <StackTraceSupport>false</StackTraceSupport>
+	  <UseSystemResourceKeys>true</UseSystemResourceKeys>
+	  <HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>
+	  <DebuggerSupport>false</DebuggerSupport>
+	  <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+	  <RunAOTCompilation>True</RunAOTCompilation>
+	  <PublishTrimmed>True</PublishTrimmed>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+    <RuntimeIdentifiers Condition="$(TargetFramework.Contains('-android'))">
+      android-arm64;android-arm;android-x86;android-x64
+    </RuntimeIdentifiers>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android35.0|AnyCPU'">
@@ -74,6 +101,10 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <RunAOTCompilation>True</RunAOTCompilation>
     <PublishTrimmed>True</PublishTrimmed>
+    <AndroidUseAapt2>True</AndroidUseAapt2>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <ApplicationVersion>2</ApplicationVersion>
+    <ApplicationDisplayVersion>1.1.0</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	
