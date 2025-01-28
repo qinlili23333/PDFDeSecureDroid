@@ -6,12 +6,15 @@
 理论可以移植到iOS，但我没有mACos设备
 
 ## 使用方式
-下载Release内安装包或自行构建  
+ARM64设备可以直接下载Release内安装包
 Release内的安装包不保证签名一致性，如果无法覆盖安装请卸载旧版本（反正也没有需要储存的数据不是吗）  
+其他架构请参与Google Play内部测试获取  
+先点击此链接加入测试群组：https://groups.google.com/g/qinlili_beta  
+然后点击此链接获取测试版本：https://play.google.com/apps/testing/moe.qinlili.pdfdesecure  
+
 
 ## 目标设备
-Android 10以上的ARM64设备  
-自行构建可支持其他架构，理论全架构支持因为没有原生库  
+Android 10以上的设备  
 理论上可以降低到最低Android 5以上，但我没有测试，先一刀切拉个最低10再说我最低的设备都11了  
 
 ## 构建环境
