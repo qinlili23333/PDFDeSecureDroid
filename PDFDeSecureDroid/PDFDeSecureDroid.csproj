@@ -30,8 +30,6 @@
 		<ApplicationId>moe.qinlili.pdfdesecuredroid</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">29.0</SupportedOSPlatformVersion>
 		<RuntimeIdentifiers Condition="$(TargetFramework.Contains('-android'))">
