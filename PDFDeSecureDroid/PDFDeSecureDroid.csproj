@@ -106,7 +106,6 @@
 
 	
 	<ItemGroup>
-		<TrimmableAssembly Include="MyAssembly" />
 		<TrimmableAssembly Remove="PDFsharp" />
 	</ItemGroup>
 
