@@ -8,7 +8,11 @@
 ## 使用方式
 ARM64设备可以直接下载Release内安装包  
 Release内的安装包不保证签名一致性，如果无法覆盖安装请卸载旧版本（反正也没有需要储存的数据不是吗）  
-其他架构请参与Google Play内部测试获取  
+其他架构请从Google Play获取
+[![Get from Google Play](GetItOnGooglePlay_Badge_Web_color_Chinese-China.svg)](https://play.google.com/store/apps/details?id=moe.qinlili.pdfdesecure)  
+
+### 参与Google Play内部测试
+参与测试可以抢先体验新版本（但我不认为还会有什么新特性了）  
 先点击此链接加入测试群组：https://groups.google.com/g/qinlili_beta  
 然后点击此链接获取测试版本：https://play.google.com/apps/testing/moe.qinlili.pdfdesecure  
 
